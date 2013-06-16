@@ -48,7 +48,7 @@
 - (void)setTokenField:(UITextField *)newTokenField
 {
     tokenField = newTokenField; 
-    self.tokenField.text = token;
+    self.tokenField.text = [[self.parser tokenize:self.token] componentsJoinedByString:@" "];
 }
 
 - (void)setCandidatesView:(UICollectionView *)newCandidatesView
@@ -64,7 +64,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     [self.textView setDelegate:self];
     self.parser = [[JPParser alloc] init];
-    self.token = @"jyutjyu";
+    self.token = @"si";
     self.inputAccessoryView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 70.0)];
     self.inputAccessoryView.backgroundColor = [UIColor grayColor];
     self.tokenField = [[UILabel alloc] initWithFrame:CGRectMake(10, 0.0, 300, 40.0)];

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		15465222176D5FC600A46F34 /* JPParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15465221176D5FC600A46F34 /* JPParser.m */; };
+		15465229176D69F000A46F34 /* dict.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 15465228176D69F000A46F34 /* dict.yaml */; };
 		157C11E0176D3F1900E946D2 /* JPCandidateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 157C11DF176D3F1900E946D2 /* JPCandidateCell.m */; };
 		15DD1B83176D31D7003D2A0E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DD1B82176D31D7003D2A0E /* UIKit.framework */; };
 		15DD1B85176D31D7003D2A0E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DD1B84176D31D7003D2A0E /* Foundation.framework */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		15465220176D5FC600A46F34 /* JPParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPParser.h; path = Jyutping/JPParser.h; sourceTree = "<group>"; };
 		15465221176D5FC600A46F34 /* JPParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPParser.m; path = Jyutping/JPParser.m; sourceTree = "<group>"; };
+		15465228176D69F000A46F34 /* dict.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict.yaml; sourceTree = "<group>"; };
 		157C11DE176D3F1900E946D2 /* JPCandidateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPCandidateCell.h; path = Jyutping/JPCandidateCell.h; sourceTree = "<group>"; };
 		157C11DF176D3F1900E946D2 /* JPCandidateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPCandidateCell.m; path = Jyutping/JPCandidateCell.m; sourceTree = "<group>"; };
 		15DD1B7E176D31D7003D2A0E /* Jyutping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jyutping.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +64,7 @@
 		15DD1B73176D31D7003D2A0E = {
 			isa = PBXGroup;
 			children = (
+				15465228176D69F000A46F34 /* dict.yaml */,
 				15465220176D5FC600A46F34 /* JPParser.h */,
 				15465221176D5FC600A46F34 /* JPParser.m */,
 				157C11DE176D3F1900E946D2 /* JPCandidateCell.h */,
@@ -174,6 +177,7 @@
 				15DD1B97176D31D7003D2A0E /* Default@2x.png in Resources */,
 				15DD1B99176D31D7003D2A0E /* Default-568h@2x.png in Resources */,
 				15DD1B9F176D31D7003D2A0E /* JPViewController.xib in Resources */,
+				15465229176D69F000A46F34 /* dict.yaml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

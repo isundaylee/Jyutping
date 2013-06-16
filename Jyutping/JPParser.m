@@ -8,7 +8,45 @@
 
 #import "JPParser.h"
 
-@implementation JPParser 
+@interface JPParser ()
+
+@property (strong, nonatomic) NSMutableDictionary *dict; 
+
+@end
+
+@implementation JPParser
+
+@synthesize dict;
+
+- (id)init
+{
+    self = [super init];
+    
+    if (self) {
+        [self loadDictionary];
+    }
+    
+    return self;
+}
+
+- (void) loadDictionary
+{
+    NSString *content = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dict" ofType:@"yaml"] encoding:NSUTF8StringEncoding error:nil];
+    NSArray *lines = [content componentsSeparatedByString:@"\n"];
+    
+    self.dict = [NSMutableDictionary dictionary];
+    
+    for (int i=0; i<[lines count]; i++) {
+        NSArray *parts = [[lines objectAtIndex:i] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        if ([parts count] < 2)
+            continue;
+        if (![self.dict objectForKey:[parts objectAtIndex:1]])
+            [self.dict setObject:[NSMutableArray array] forKey:[parts objectAtIndex:1]];
+        [[self.dict objectForKey:[parts objectAtIndex:1]] addObject:[parts objectAtIndex:0]];
+    }
+    
+    NSLog(@"%@", [lines objectAtIndex:0]);
+}
 
 - (NSDictionary *)parse:(NSString *)token
 {
@@ -28,9 +66,18 @@
         [candidates addObject:str];
     }
     
-    [result setObject:candidates forKey:@"candidates"];
+    [result setObject:[self tokenize:token]forKey:@"tokens"];
+    if ([self.dict objectForKey:token])
+        [result setObject:[self.dict objectForKey:token] forKey:@"candidates"];
+    else
+        [result setObject:[NSMutableArray array] forKey:@"candidates"] ;
     
     return result;
+}
+
+- (NSArray *)tokenize:(NSString *)string
+{
+    return [NSArray arrayWithObject:string];
 }
 
 @end

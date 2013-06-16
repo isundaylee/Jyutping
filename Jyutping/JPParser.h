@@ -11,5 +11,6 @@
 @interface JPParser : NSObject
 
 - (NSDictionary *)parse: (NSString *)string;
+- (NSArray *)tokenize: (NSString *)string;
 
 @end
