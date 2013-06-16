@@ -78,6 +78,7 @@
     [self.inputAccessoryView addSubview:self.candidatesView];
     [self.inputAccessoryView addSubview:self.tokenField];
     self.textView.inputAccessoryView = self.inputAccessoryView;
+    [self.textView becomeFirstResponder]; 
 }
 
 - (void)didReceiveMemoryWarning
