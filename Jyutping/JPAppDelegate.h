@@ -16,4 +16,6 @@
 
 @property (strong, nonatomic) JPViewController *viewController;
 
+@property (strong, nonatomic) UITextView *textView;
+
 @end

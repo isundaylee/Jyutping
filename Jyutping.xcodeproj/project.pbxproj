@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		157C11E0176D3F1900E946D2 /* JPCandidateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 157C11DF176D3F1900E946D2 /* JPCandidateCell.m */; };
 		15DD1B83176D31D7003D2A0E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DD1B82176D31D7003D2A0E /* UIKit.framework */; };
 		15DD1B85176D31D7003D2A0E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DD1B84176D31D7003D2A0E /* Foundation.framework */; };
 		15DD1B87176D31D7003D2A0E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DD1B86176D31D7003D2A0E /* CoreGraphics.framework */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		157C11DE176D3F1900E946D2 /* JPCandidateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPCandidateCell.h; path = Jyutping/JPCandidateCell.h; sourceTree = "<group>"; };
+		157C11DF176D3F1900E946D2 /* JPCandidateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPCandidateCell.m; path = Jyutping/JPCandidateCell.m; sourceTree = "<group>"; };
 		15DD1B7E176D31D7003D2A0E /* Jyutping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jyutping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15DD1B82176D31D7003D2A0E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		15DD1B84176D31D7003D2A0E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -56,6 +59,8 @@
 		15DD1B73176D31D7003D2A0E = {
 			isa = PBXGroup;
 			children = (
+				157C11DE176D3F1900E946D2 /* JPCandidateCell.h */,
+				157C11DF176D3F1900E946D2 /* JPCandidateCell.m */,
 				15DD1B88176D31D7003D2A0E /* Jyutping */,
 				15DD1B81176D31D7003D2A0E /* Frameworks */,
 				15DD1B7F176D31D7003D2A0E /* Products */,
@@ -177,6 +182,7 @@
 				15DD1B8F176D31D7003D2A0E /* main.m in Sources */,
 				15DD1B93176D31D7003D2A0E /* JPAppDelegate.m in Sources */,
 				15DD1B9C176D31D7003D2A0E /* JPViewController.m in Sources */,
+				157C11E0176D3F1900E946D2 /* JPCandidateCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +299,7 @@
 				15DD1BA4176D31D7003D2A0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
