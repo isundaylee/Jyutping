@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15465222176D5FC600A46F34 /* JPParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15465221176D5FC600A46F34 /* JPParser.m */; };
 		157C11E0176D3F1900E946D2 /* JPCandidateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 157C11DF176D3F1900E946D2 /* JPCandidateCell.m */; };
 		15DD1B83176D31D7003D2A0E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DD1B82176D31D7003D2A0E /* UIKit.framework */; };
 		15DD1B85176D31D7003D2A0E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DD1B84176D31D7003D2A0E /* Foundation.framework */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15465220176D5FC600A46F34 /* JPParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPParser.h; path = Jyutping/JPParser.h; sourceTree = "<group>"; };
+		15465221176D5FC600A46F34 /* JPParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPParser.m; path = Jyutping/JPParser.m; sourceTree = "<group>"; };
 		157C11DE176D3F1900E946D2 /* JPCandidateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPCandidateCell.h; path = Jyutping/JPCandidateCell.h; sourceTree = "<group>"; };
 		157C11DF176D3F1900E946D2 /* JPCandidateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPCandidateCell.m; path = Jyutping/JPCandidateCell.m; sourceTree = "<group>"; };
 		15DD1B7E176D31D7003D2A0E /* Jyutping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jyutping.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +62,8 @@
 		15DD1B73176D31D7003D2A0E = {
 			isa = PBXGroup;
 			children = (
+				15465220176D5FC600A46F34 /* JPParser.h */,
+				15465221176D5FC600A46F34 /* JPParser.m */,
 				157C11DE176D3F1900E946D2 /* JPCandidateCell.h */,
 				157C11DF176D3F1900E946D2 /* JPCandidateCell.m */,
 				15DD1B88176D31D7003D2A0E /* Jyutping */,
@@ -183,6 +188,7 @@
 				15DD1B93176D31D7003D2A0E /* JPAppDelegate.m in Sources */,
 				15DD1B9C176D31D7003D2A0E /* JPViewController.m in Sources */,
 				157C11E0176D3F1900E946D2 /* JPCandidateCell.m in Sources */,
+				15465222176D5FC600A46F34 /* JPParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

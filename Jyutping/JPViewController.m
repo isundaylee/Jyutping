@@ -8,8 +8,11 @@
 
 #import "JPViewController.h"
 #import "JPCandidateCell.h" 
+#import "JPParser.h"
 
 @interface JPViewController ()
+
+@property (nonatomic, strong) JPParser *parser; 
 
 @end
 
@@ -20,7 +23,15 @@
 @synthesize token;
 @synthesize candidatesView;
 @synthesize candidates;
-@synthesize inputAccessoryView; 
+@synthesize inputAccessoryView;
+@synthesize parser; 
+
+- (id)init {
+    self = [super init];
+    if (self) {
+    }
+    return self;
+}
 
 - (void)setCandidates:(NSArray *)newCandidates
 {
@@ -52,6 +63,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self.textView setDelegate:self];
+    self.parser = [[JPParser alloc] init];
     self.token = @"jyutjyu";
     self.inputAccessoryView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 70.0)];
     self.inputAccessoryView.backgroundColor = [UIColor grayColor];
@@ -147,22 +159,7 @@
 
 - (void) refreshCandidates
 {
-    NSMutableArray *candidates = [NSMutableArray array];
-    
-    for (int i=0; i<token.length; i++) {
-        NSString *str = @"時日無多";
-        if (i == 0)
-            str = @"點解";
-        else if (i == 1)
-            str = @"什麼";
-        else if (i == 2)
-            str = @"陳奕迅";
-        else if (i <= 4)
-            str = @"親";
-        [candidates addObject:str];
-    }
-    
-    self.candidates = candidates;
+    self.candidates = [[self.parser parse:self.token] objectForKey:@"candidates"];
     
     [self.candidatesView reloadData]; 
 }
