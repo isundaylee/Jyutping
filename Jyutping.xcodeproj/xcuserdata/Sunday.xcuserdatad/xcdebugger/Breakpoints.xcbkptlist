@@ -60,12 +60,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Jyutping/JPParser.m"
-         timestampString = "393047224.475424"
+         timestampString = "393088605.346831"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "57"
-         endingLineNumber = "57"
-         landmarkName = "-parse:"
+         startingLineNumber = "50"
+         endingLineNumber = "50"
+         landmarkName = "-loadDictionary"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

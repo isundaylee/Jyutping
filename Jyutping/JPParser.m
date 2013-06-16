@@ -10,7 +10,8 @@
 
 @interface JPParser ()
 
-@property (strong, nonatomic) NSMutableDictionary *dict; 
+@property (strong, nonatomic) NSMutableDictionary *dict;
+@property (strong, nonatomic) NSMutableDictionary *weights; 
 
 @end
 
@@ -35,6 +36,7 @@
     NSArray *lines = [content componentsSeparatedByString:@"\n"];
     
     self.dict = [NSMutableDictionary dictionary];
+    self.weights = [NSMutableDictionary dictionary]; 
     
     for (int i=0; i<[lines count]; i++) {
         NSArray *parts = [[lines objectAtIndex:i] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -43,32 +45,41 @@
         if (![self.dict objectForKey:[parts objectAtIndex:1]])
             [self.dict setObject:[NSMutableArray array] forKey:[parts objectAtIndex:1]];
         [[self.dict objectForKey:[parts objectAtIndex:1]] addObject:[parts objectAtIndex:0]];
+        if ([parts count] >= 3) {
+            [self.dict setObject:[NSNumber numberWithInt:[[parts objectAtIndex:2] integerValue]] forKey:[parts objectAtIndex:0]];
+            NSLog(@"%@ %@", [parts objectAtIndex:0], [parts objectAtIndex:2]);
+        }
+        else
+            [self.dict setObject:[NSNumber numberWithInt:100] forKey:[parts objectAtIndex:0]];
     }
     
     NSLog(@"%@", [lines objectAtIndex:0]);
 }
 
+- (int) weightOfCandidate:(NSString *)candidate
+{
+    if ([self.weights objectForKey:candidate])
+        return [[self.weights objectForKey:candidate] intValue];
+    else
+        return 0;
+}
+
+- (NSArray *)sortByWeight:(NSArray *)candidates
+{
+    return [candidates sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        int w1 = [self weightOfCandidate:(NSString *)obj1];
+        int w2 = [self weightOfCandidate:(NSString *)obj2];
+        return [[NSNumber numberWithInt:w1] compare:[NSNumber numberWithInt:w2]];
+    }];
+}
+
 - (NSDictionary *)parse:(NSString *)token
 {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
-    NSMutableArray *candidates = [NSMutableArray array];
-    
-    for (int i=0; i<token.length; i++) {
-        NSString *str = @"時日無多";
-        if (i == 0)
-            str = @"點解";
-        else if (i == 1)
-            str = @"什麼";
-        else if (i == 2)
-            str = @"陳奕迅";
-        else if (i <= 4)
-            str = @"親";
-        [candidates addObject:str];
-    }
     
     [result setObject:[self tokenize:token]forKey:@"tokens"];
     if ([self.dict objectForKey:token])
-        [result setObject:[self.dict objectForKey:token] forKey:@"candidates"];
+        [result setObject:[self sortByWeight: [self.dict objectForKey:token]] forKey:@"candidates"];
     else
         [result setObject:[NSMutableArray array] forKey:@"candidates"] ;
     
