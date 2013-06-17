@@ -21,6 +21,8 @@
 @implementation JPParser
 
 @synthesize dict;
+@synthesize weights;
+@synthesize tokenizer; 
 
 - (id)init
 {
@@ -47,18 +49,19 @@
         NSArray *parts = [[lines objectAtIndex:i] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if ([parts count] < 2)
             continue;
+//        NSLog(@"%@", [parts objectAtIndex:1]); 
         if (![self.dict objectForKey:[parts objectAtIndex:1]])
             [self.dict setObject:[NSMutableArray array] forKey:[parts objectAtIndex:1]];
         [[self.dict objectForKey:[parts objectAtIndex:1]] addObject:[parts objectAtIndex:0]];
         if ([parts count] >= 3) {
-            [self.dict setObject:[NSNumber numberWithInt:[[parts objectAtIndex:2] integerValue]] forKey:[parts objectAtIndex:0]];
-            NSLog(@"%@ %@", [parts objectAtIndex:0], [parts objectAtIndex:2]);
+            [self.weights setObject:[NSNumber numberWithInt:[[parts objectAtIndex:2] integerValue]] forKey:[parts objectAtIndex:0]];
+//            NSLog(@"%@ %@", [parts objectAtIndex:0], [parts objectAtIndex:2]);
         }
         else
-            [self.dict setObject:[NSNumber numberWithInt:100] forKey:[parts objectAtIndex:0]];
+            [self.weights setObject:[NSNumber numberWithInt:100] forKey:[parts objectAtIndex:0]];
     }
     
-    NSLog(@"%@", [lines objectAtIndex:0]);
+//    NSLog(@"%@", [lines objectAtIndex:0]);
 }
 
 - (int) weightOfCandidate:(NSString *)candidate

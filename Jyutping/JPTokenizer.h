@@ -10,7 +10,7 @@
 
 @interface JPTokenizer : NSObject
 
-- (void) loadTokens:(NSDictionary *)tokens;
+- (void) loadTokens:(NSArray *)newTokens;
 - (NSArray *) tokenize:(NSString *)string; 
 
 @end

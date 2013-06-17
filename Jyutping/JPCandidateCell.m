@@ -24,7 +24,7 @@
     if (self) {
         // Initialization code
         self.label = [[UIButton alloc] initWithFrame:self.bounds];
-        NSLog(@"%f", self.bounds.size.height);
+//        NSLog(@"%f", self.bounds.size.height);
         self.autoresizesSubviews = YES;
         self.label.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 //        self.label.font = [UIFont boldSystemFontOfSize:21];
