@@ -7,11 +7,14 @@
 //
 
 #import "JPParser.h"
+#import "JPTokenizer.h"
 
 @interface JPParser ()
 
 @property (strong, nonatomic) NSMutableDictionary *dict;
-@property (strong, nonatomic) NSMutableDictionary *weights; 
+@property (strong, nonatomic) NSMutableDictionary *weights;
+
+@property (strong, nonatomic) JPTokenizer *tokenizer;
 
 @end
 
@@ -25,6 +28,8 @@
     
     if (self) {
         [self loadDictionary];
+        self.tokenizer = [[JPTokenizer alloc] init];
+        [self.tokenizer loadTokens:[self.dict allKeys]];
     }
     
     return self;
@@ -77,7 +82,7 @@
 {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     
-    [result setObject:[self tokenize:token]forKey:@"tokens"];
+    [result setObject:[self tokenize:token] forKey:@"tokens"];
     if ([self.dict objectForKey:token])
         [result setObject:[self sortByWeight: [self.dict objectForKey:token]] forKey:@"candidates"];
     else
@@ -86,9 +91,8 @@
     return result;
 }
 
-- (NSArray *)tokenize:(NSString *)string
-{
-    return [NSArray arrayWithObject:string];
+- (NSArray *)tokenize:(NSString *)string {
+    return [self.tokenizer tokenize:string];
 }
 
 @end

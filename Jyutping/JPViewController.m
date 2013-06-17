@@ -42,7 +42,7 @@
 {
     token = newToken;
     [self refreshCandidates];
-    self.tokenField.text = token; 
+    self.tokenField.text = [[self.parser tokenize:self.token] componentsJoinedByString:@" "];
 }
 
 - (void)setTokenField:(UITextField *)newTokenField

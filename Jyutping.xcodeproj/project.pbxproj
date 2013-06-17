@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		15465222176D5FC600A46F34 /* JPParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15465221176D5FC600A46F34 /* JPParser.m */; };
 		15465229176D69F000A46F34 /* dict.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 15465228176D69F000A46F34 /* dict.yaml */; };
+		1546522F176E876800A46F34 /* JPTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1546522E176E876800A46F34 /* JPTokenizer.m */; };
 		157C11E0176D3F1900E946D2 /* JPCandidateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 157C11DF176D3F1900E946D2 /* JPCandidateCell.m */; };
 		15DD1B83176D31D7003D2A0E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DD1B82176D31D7003D2A0E /* UIKit.framework */; };
 		15DD1B85176D31D7003D2A0E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DD1B84176D31D7003D2A0E /* Foundation.framework */; };
@@ -24,11 +25,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		15465220176D5FC600A46F34 /* JPParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPParser.h; path = Jyutping/JPParser.h; sourceTree = "<group>"; };
-		15465221176D5FC600A46F34 /* JPParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPParser.m; path = Jyutping/JPParser.m; sourceTree = "<group>"; };
+		15465220176D5FC600A46F34 /* JPParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPParser.h; sourceTree = "<group>"; };
+		15465221176D5FC600A46F34 /* JPParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPParser.m; sourceTree = "<group>"; };
 		15465228176D69F000A46F34 /* dict.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict.yaml; sourceTree = "<group>"; };
-		157C11DE176D3F1900E946D2 /* JPCandidateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPCandidateCell.h; path = Jyutping/JPCandidateCell.h; sourceTree = "<group>"; };
-		157C11DF176D3F1900E946D2 /* JPCandidateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPCandidateCell.m; path = Jyutping/JPCandidateCell.m; sourceTree = "<group>"; };
+		1546522D176E876800A46F34 /* JPTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPTokenizer.h; sourceTree = "<group>"; };
+		1546522E176E876800A46F34 /* JPTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPTokenizer.m; sourceTree = "<group>"; };
+		157C11DE176D3F1900E946D2 /* JPCandidateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCandidateCell.h; sourceTree = "<group>"; };
+		157C11DF176D3F1900E946D2 /* JPCandidateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCandidateCell.m; sourceTree = "<group>"; };
 		15DD1B7E176D31D7003D2A0E /* Jyutping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jyutping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15DD1B82176D31D7003D2A0E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		15DD1B84176D31D7003D2A0E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,14 +64,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1546522B176E873700A46F34 /* Algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				15465220176D5FC600A46F34 /* JPParser.h */,
+				15465221176D5FC600A46F34 /* JPParser.m */,
+				1546522D176E876800A46F34 /* JPTokenizer.h */,
+				1546522E176E876800A46F34 /* JPTokenizer.m */,
+			);
+			name = Algorithms;
+			sourceTree = "<group>";
+		};
+		1546522C176E874100A46F34 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				157C11DE176D3F1900E946D2 /* JPCandidateCell.h */,
+				157C11DF176D3F1900E946D2 /* JPCandidateCell.m */,
+				15DD1B9A176D31D7003D2A0E /* JPViewController.h */,
+				15DD1B9B176D31D7003D2A0E /* JPViewController.m */,
+				15DD1B9D176D31D7003D2A0E /* JPViewController.xib */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
 		15DD1B73176D31D7003D2A0E = {
 			isa = PBXGroup;
 			children = (
 				15465228176D69F000A46F34 /* dict.yaml */,
-				15465220176D5FC600A46F34 /* JPParser.h */,
-				15465221176D5FC600A46F34 /* JPParser.m */,
-				157C11DE176D3F1900E946D2 /* JPCandidateCell.h */,
-				157C11DF176D3F1900E946D2 /* JPCandidateCell.m */,
 				15DD1B88176D31D7003D2A0E /* Jyutping */,
 				15DD1B81176D31D7003D2A0E /* Frameworks */,
 				15DD1B7F176D31D7003D2A0E /* Products */,
@@ -96,11 +118,10 @@
 		15DD1B88176D31D7003D2A0E /* Jyutping */ = {
 			isa = PBXGroup;
 			children = (
+				1546522C176E874100A46F34 /* Interface */,
+				1546522B176E873700A46F34 /* Algorithms */,
 				15DD1B91176D31D7003D2A0E /* JPAppDelegate.h */,
 				15DD1B92176D31D7003D2A0E /* JPAppDelegate.m */,
-				15DD1B9A176D31D7003D2A0E /* JPViewController.h */,
-				15DD1B9B176D31D7003D2A0E /* JPViewController.m */,
-				15DD1B9D176D31D7003D2A0E /* JPViewController.xib */,
 				15DD1B89176D31D7003D2A0E /* Supporting Files */,
 			);
 			path = Jyutping;
@@ -193,6 +214,7 @@
 				15DD1B9C176D31D7003D2A0E /* JPViewController.m in Sources */,
 				157C11E0176D3F1900E946D2 /* JPCandidateCell.m in Sources */,
 				15465222176D5FC600A46F34 /* JPParser.m in Sources */,
+				1546522F176E876800A46F34 /* JPTokenizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
