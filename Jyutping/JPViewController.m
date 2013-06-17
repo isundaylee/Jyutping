@@ -42,13 +42,13 @@
 {
     token = newToken;
     [self refreshCandidates];
-    self.tokenField.text = [[self.parser tokenize:self.token] componentsJoinedByString:@" "];
+    self.tokenField.text = [[self.parser tokenize:self.token] componentsJoinedByString:@"'"];
 }
 
 - (void)setTokenField:(UITextField *)newTokenField
 {
     tokenField = newTokenField; 
-    self.tokenField.text = [[self.parser tokenize:self.token] componentsJoinedByString:@" "];
+    self.tokenField.text = [[self.parser tokenize:self.token] componentsJoinedByString:@"'"];
 }
 
 - (void)setCandidatesView:(UICollectionView *)newCandidatesView
