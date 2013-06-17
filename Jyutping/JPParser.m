@@ -39,8 +39,10 @@
 
 - (void) loadDictionary
 {
-    NSString *content = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dict" ofType:@"yaml"] encoding:NSUTF8StringEncoding error:nil];
+    NSString *content = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dict" ofType:@"dat"] encoding:NSUTF8StringEncoding error:nil];
     NSArray *lines = [content componentsSeparatedByString:@"\n"];
+    
+    NSLog(@"%@", [[NSBundle mainBundle] pathForResource:@"dict" ofType:@"yaml"]); 
     
     self.dict = [NSMutableDictionary dictionary];
     self.weights = [NSMutableDictionary dictionary]; 
@@ -49,7 +51,9 @@
         NSArray *parts = [[lines objectAtIndex:i] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if ([parts count] < 2)
             continue;
-//        NSLog(@"%@", [parts objectAtIndex:1]); 
+//        NSLog(@"%@", [parts objectAtIndex:1]);
+        if ([[parts objectAtIndex:1] isEqualToString:@""])
+            NSLog(@"%@", [parts objectAtIndex:0]);
         if (![self.dict objectForKey:[parts objectAtIndex:1]])
             [self.dict setObject:[NSMutableArray array] forKey:[parts objectAtIndex:1]];
         [[self.dict objectForKey:[parts objectAtIndex:1]] addObject:[parts objectAtIndex:0]];
@@ -66,6 +70,8 @@
 
 - (int) weightOfCandidate:(NSString *)candidate
 {
+    if ([candidate isEqualToString:@"鍉"])
+        NSLog(@"%d", [[self.weights objectForKey:candidate] intValue]); 
     if ([self.weights objectForKey:candidate])
         return [[self.weights objectForKey:candidate] intValue];
     else
@@ -77,7 +83,7 @@
     return [candidates sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         int w1 = [self weightOfCandidate:(NSString *)obj1];
         int w2 = [self weightOfCandidate:(NSString *)obj2];
-        return [[NSNumber numberWithInt:w1] compare:[NSNumber numberWithInt:w2]];
+        return [[NSNumber numberWithInt:w2] compare:[NSNumber numberWithInt:w1]];
     }];
 }
 
