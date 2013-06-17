@@ -90,12 +90,14 @@
 - (NSDictionary *)parse:(NSString *)token
 {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
+    NSArray *tokens = [self tokenize:token];
     
-    [result setObject:[self tokenize:token] forKey:@"tokens"];
-    if ([self.dict objectForKey:token])
-        [result setObject:[self sortByWeight: [self.dict objectForKey:token]] forKey:@"candidates"];
+    [result setObject:tokens forKey:@"tokens"];
+    
+    if ([self.dict objectForKey:[tokens objectAtIndex:0]])
+        [result setObject:[self sortByWeight: [self.dict objectForKey:[tokens objectAtIndex:0]]] forKey:@"candidates"];
     else
-        [result setObject:[NSMutableArray array] forKey:@"candidates"] ;
+        [result setObject:[NSMutableArray array] forKey:@"candidates"];
     
     return result;
 }

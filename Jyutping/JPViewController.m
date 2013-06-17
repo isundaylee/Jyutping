@@ -130,7 +130,26 @@
 - (void)candidateButtonPressed:(id)sender
 {
     UIButton *button = sender;
-    [self insertText:[button titleForState:UIControlStateNormal]];
+    NSString *candidate = [button titleForState:UIControlStateNormal];
+    NSString *token = self.token;
+    NSArray *tokens = [self.parser tokenize:token];
+    int length = 0;
+    
+    for (int i=0; i<[candidate length]; i++)
+        length += [[tokens objectAtIndex:i] length];
+    
+    for (int i=0; i<length; i++) {
+        while (!isalpha([token characterAtIndex:0]))
+            token = [token substringFromIndex:1];
+        token = [token substringFromIndex:1];
+    }
+    
+    while (([token length] > 0) && !isalpha([token characterAtIndex:0]))
+        token = [token substringFromIndex:1];
+    
+    self.token = token;
+    
+    [self insertText:candidate];
 }
 
 - (void)insertText:(NSString *)text
@@ -140,7 +159,6 @@
     }
     
     [self.textView insertText:text];
-    self.token = @"";
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
