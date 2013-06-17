@@ -19,6 +19,9 @@
 
 @property (readonly) NSString *token;
 
+@property (nonatomic, strong) UIButton *prevButton;
+@property (nonatomic, strong) UIButton *nextButton;
+
 - (void) candidateButtonPressed:(id)sender;
 - (void) insertText:(NSString *)text;
 

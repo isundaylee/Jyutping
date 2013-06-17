@@ -67,16 +67,38 @@
     self.token = @"si";
     self.inputAccessoryView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 70.0)];
     self.inputAccessoryView.backgroundColor = [UIColor grayColor];
-    self.tokenField = [[UILabel alloc] initWithFrame:CGRectMake(10, 0.0, 300, 40.0)];
+    
+    self.tokenField = [[UILabel alloc] initWithFrame:CGRectMake(10, 0.0, 310, 40.0)];
     self.tokenField.font = [UIFont boldSystemFontOfSize:15];
-    self.tokenField.textColor = [UIColor whiteColor]; 
+    self.tokenField.textColor = [UIColor whiteColor];
     self.tokenField.adjustsFontSizeToFitWidth = YES;
-    self.tokenField.backgroundColor = [UIColor grayColor]; 
+    self.tokenField.backgroundColor = [UIColor grayColor];
     self.candidatesView = [[UICollectionView alloc] initWithFrame:CGRectMake(0.0, 30.0, 320.0, 40.0) collectionViewLayout:[UICollectionViewFlowLayout new]];
+    [self.inputAccessoryView addSubview:self.tokenField];
+    
+    self.prevButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 0.0, 20.0, 40.0)];
+    self.prevButton.font = [UIFont boldSystemFontOfSize:15];
+    self.prevButton.titleLabel.textColor = [UIColor whiteColor];
+    self.prevButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.prevButton.backgroundColor = [UIColor grayColor];
+    [self.prevButton setTitle:@"<" forState:UIControlStateNormal];
+    [self.prevButton addTarget:self action:@selector(prevButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.inputAccessoryView addSubview:self.prevButton];
+    
+    self.nextButton = [[UIButton alloc] initWithFrame:CGRectMake(290, 0.0, 20.0, 40.0)];
+    self.nextButton.font = [UIFont boldSystemFontOfSize:15];
+    self.nextButton.titleLabel.textColor = [UIColor whiteColor];
+    self.nextButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.nextButton.backgroundColor = [UIColor grayColor];
+    [self.nextButton setTitle:@">" forState:UIControlStateNormal];
+    [self.nextButton addTarget:self action:@selector(nextButtonPressed:) forControlEvents:UIControlEventTouchUpInside]; 
+    
+    [self.inputAccessoryView addSubview:self.nextButton];
     [self.candidatesView registerClass:[JPCandidateCell class] forCellWithReuseIdentifier:@"cell"];
     self.candidatesView.backgroundColor = [UIColor grayColor];
+    self.candidatesView.scrollEnabled = NO;
     [self.inputAccessoryView addSubview:self.candidatesView];
-    [self.inputAccessoryView addSubview:self.tokenField];
     self.textView.inputAccessoryView = self.inputAccessoryView;
     [self.textView becomeFirstResponder]; 
 }
@@ -181,6 +203,16 @@
     self.candidates = [[self.parser parse:self.token] objectForKey:@"candidates"];
     
     [self.candidatesView reloadData]; 
+}
+
+- (void) prevButtonPressed:(id)sender
+{
+    [self.candidatesView scrollRectToVisible:CGRectMake(0.0, self.candidatesView.contentOffset.y - 50.0, 100.0, 40.0) animated:YES];
+}
+
+- (void) nextButtonPressed:(id)sender
+{
+    [self.candidatesView scrollRectToVisible:CGRectMake(0.0, self.candidatesView.contentOffset.y + 50.0, 100.0, 40.0) animated:YES];
 }
 
 @end
