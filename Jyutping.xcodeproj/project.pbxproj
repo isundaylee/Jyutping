@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1542724C176EBAB5004A961C /* words.dat in Resources */ = {isa = PBXBuildFile; fileRef = 1542724B176EBAB5004A961C /* words.dat */; };
 		15465222176D5FC600A46F34 /* JPParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15465221176D5FC600A46F34 /* JPParser.m */; };
 		1546522F176E876800A46F34 /* JPTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1546522E176E876800A46F34 /* JPTokenizer.m */; };
+		1563877B17726D3900E1DA92 /* dict.dat in Resources */ = {isa = PBXBuildFile; fileRef = 1563877A17726D3900E1DA92 /* dict.dat */; };
 		157C11E0176D3F1900E946D2 /* JPCandidateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 157C11DF176D3F1900E946D2 /* JPCandidateCell.m */; };
-		15880247176EA7C40057CAD0 /* dict.dat in Resources */ = {isa = PBXBuildFile; fileRef = 15880246176EA7C40057CAD0 /* dict.dat */; };
 		15DD1B83176D31D7003D2A0E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DD1B82176D31D7003D2A0E /* UIKit.framework */; };
 		15DD1B85176D31D7003D2A0E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DD1B84176D31D7003D2A0E /* Foundation.framework */; };
 		15DD1B87176D31D7003D2A0E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DD1B86176D31D7003D2A0E /* CoreGraphics.framework */; };
@@ -25,13 +26,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1542724B176EBAB5004A961C /* words.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.dat; sourceTree = "<group>"; };
 		15465220176D5FC600A46F34 /* JPParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPParser.h; sourceTree = "<group>"; };
 		15465221176D5FC600A46F34 /* JPParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPParser.m; sourceTree = "<group>"; };
 		1546522D176E876800A46F34 /* JPTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPTokenizer.h; sourceTree = "<group>"; };
 		1546522E176E876800A46F34 /* JPTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPTokenizer.m; sourceTree = "<group>"; };
+		1563877A17726D3900E1DA92 /* dict.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict.dat; sourceTree = "<group>"; };
 		157C11DE176D3F1900E946D2 /* JPCandidateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCandidateCell.h; sourceTree = "<group>"; };
 		157C11DF176D3F1900E946D2 /* JPCandidateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCandidateCell.m; sourceTree = "<group>"; };
-		15880246176EA7C40057CAD0 /* dict.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict.dat; sourceTree = "<group>"; };
 		15DD1B7E176D31D7003D2A0E /* Jyutping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jyutping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15DD1B82176D31D7003D2A0E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		15DD1B84176D31D7003D2A0E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -117,7 +119,8 @@
 		15DD1B88176D31D7003D2A0E /* Jyutping */ = {
 			isa = PBXGroup;
 			children = (
-				15880246176EA7C40057CAD0 /* dict.dat */,
+				1563877A17726D3900E1DA92 /* dict.dat */,
+				1542724B176EBAB5004A961C /* words.dat */,
 				1546522C176E874100A46F34 /* Interface */,
 				1546522B176E873700A46F34 /* Algorithms */,
 				15DD1B91176D31D7003D2A0E /* JPAppDelegate.h */,
@@ -198,7 +201,8 @@
 				15DD1B97176D31D7003D2A0E /* Default@2x.png in Resources */,
 				15DD1B99176D31D7003D2A0E /* Default-568h@2x.png in Resources */,
 				15DD1B9F176D31D7003D2A0E /* JPViewController.xib in Resources */,
-				15880247176EA7C40057CAD0 /* dict.dat in Resources */,
+				1542724C176EBAB5004A961C /* words.dat in Resources */,
+				1563877B17726D3900E1DA92 /* dict.dat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,10 +297,12 @@
 		15DD1BA3176D31D7003D2A0E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Jyutping/Jyutping-Prefix.pch";
 				INFOPLIST_FILE = "Jyutping/Jyutping-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -304,10 +310,12 @@
 		15DD1BA4176D31D7003D2A0E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Jyutping/Jyutping-Prefix.pch";
 				INFOPLIST_FILE = "Jyutping/Jyutping-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
