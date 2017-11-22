@@ -10,9 +10,9 @@
 
 @interface JPViewController : UIViewController <UITextViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
-@property (weak, nonatomic) IBOutlet UITextView *textView;
-@property (weak, nonatomic) IBOutlet UILabel *tokenField;
-@property (weak, nonatomic) IBOutlet UICollectionView *candidatesView;
+@property (strong, nonatomic) IBOutlet UITextView *textView;
+@property (strong, nonatomic) IBOutlet UILabel *tokenField;
+@property (strong, nonatomic) IBOutlet UICollectionView *candidatesView;
 @property (nonatomic, strong) UIView *inputAccessoryView;
 
 @property (readonly, strong, nonatomic) NSArray *candidates;
